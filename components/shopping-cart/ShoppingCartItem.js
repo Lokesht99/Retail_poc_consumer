@@ -13,7 +13,7 @@ function ShoppingCartItem({ data = {} }) {
   const { localize } = useLocalization();
   const settingContext = useContext(SiteSettingContext);
   let image;
-  let price = `${formatPrice(data.product.price)} ${localize("kyat")}`;
+  let price = `${formatPrice(data.product.price)} ${localize("dollar")}`;
 
   if (data.product.images && data.product.images.length > 0) {
     image = `${baseImagePath}/books%2F${data.product.images[0]}?alt=media`;
@@ -76,9 +76,9 @@ function ShoppingCartItem({ data = {} }) {
     price = (
       <>
         {transformDiscount(data.product.price, data.product.discount)}&nbsp;
-        {localize("kyat")}
+        {localize("dollar")}
         <del className="text-muted small fw-normal ms-1">
-          {formatPrice(data.product.price)}&nbsp;{localize("kyat")}
+          {formatPrice(data.product.price)}&nbsp;{localize("dollar")}
         </del>
       </>
     );

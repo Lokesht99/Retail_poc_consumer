@@ -105,7 +105,7 @@ function Header({ extended, hideAuth }) {
                 <input
                   className="form-control py-2"
                   type="search"
-                  placeholder="Search books..."
+                  placeholder="Search products..."
                   aria-label="Search"
                   size="32"
                   value={search}

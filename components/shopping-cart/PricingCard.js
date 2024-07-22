@@ -25,21 +25,21 @@ function PricingCard({
               {formatPrice(
                 data.reduce((p, c) => p + c.product.price * c.quantity, 0)
               )}
-              &nbsp;{localize("kyat")}
+              &nbsp;{localize("dollar")}
             </span>
           </div>
           <div className="d-flex justify-content-between">
             <span>{localize("discount")}</span>
             <span className="text-danger">
               -{formatPrice(data.reduce((p, c) => p + c.discount, 0))}&nbsp;
-              {localize("kyat")}
+              {localize("dollar")}
             </span>
           </div>
           {showDelivery && (
             <div className="d-flex justify-content-between">
               <span>{localize("delivery_fee")}</span>
               <span className="text-success">
-                +{formatPrice(fee)}&nbsp;{localize("kyat")}
+                +{formatPrice(fee)}&nbsp;{localize("dollar")}
               </span>
             </div>
           )}
@@ -50,7 +50,7 @@ function PricingCard({
             <span className="h5">{localize("total_price")}</span>
             <span className="fw-bold h5 mb-0">
               {formatPrice(data.reduce((p, c) => p + c.price, fee))}&nbsp;
-              {localize("kyat")}
+              {localize("dollar")}
             </span>
           </div>
 

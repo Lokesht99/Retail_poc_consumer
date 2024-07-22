@@ -35,7 +35,7 @@ function ProductDetail() {
   });
 
   useEffect(() => {
-    document.title = `${process.env.NEXT_PUBLIC_APP_NAME} | Book Detail`;
+    document.title = `${process.env.NEXT_PUBLIC_APP_NAME} | Product Detail`;
   });
 
   useEffect(() => {
@@ -58,15 +58,15 @@ function ProductDetail() {
   }
 
   const product = data.product;
-  let price = `${formatPrice(product.price)} ${localize("kyat")}`;
+  let price = `${formatPrice(product.price)} ${localize("dollar")}`;
 
   if (product.isDiscount) {
     price = (
       <>
         {transformDiscount(product.price, product.discount)}&nbsp;
-        {localize("kyat")}
+        {localize("dollar")}
         <del className="text-danger small fw-normal ms-1">
-          {formatPrice(product.price)}&nbsp;{localize("kyat")}
+          {formatPrice(product.price)}&nbsp;{localize("dollar")}
         </del>
       </>
     );
@@ -379,7 +379,7 @@ function ProductDetail() {
                 className="px-3 d-flex align-items-center card-header"
                 style={{ height: 64 }}
               >
-                <h5 className="mb-0 fw-semibold">Related books</h5>
+                <h5 className="mb-0 fw-semibold">Related products</h5>
               </div>
               <div className="card-body">
                 {data.relatedProducts.length > 0 ? (
@@ -389,7 +389,7 @@ function ProductDetail() {
                     })}
                   </div>
                 ) : (
-                  <div className="text-muted">No related books.</div>
+                  <div className="text-muted">No related products.</div>
                 )}
               </div>
             </div>

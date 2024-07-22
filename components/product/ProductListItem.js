@@ -16,7 +16,7 @@ function ProductListItem({ data, large }) {
   let popular;
   let available;
   let image;
-  let price = `${formatPrice(data.price)} ${localize("kyat")}`;
+  let price = `${formatPrice(data.price)} ${localize("dollar")}`;
 
   if (data.images && data.images.length > 0) {
     image = `${baseImagePath}/books%2F${data.images[0]}?alt=media`;
@@ -44,9 +44,9 @@ function ProductListItem({ data, large }) {
   if (data.isDiscount) {
     price = (
       <>
-        {transformDiscount(data.price, data.discount)}&nbsp;{localize("kyat")}
+        {transformDiscount(data.price, data.discount)}&nbsp;{localize("dollar")}
         <del className="text-muted small fw-normal ms-1">
-          {formatPrice(data.price)}&nbsp;{localize("kyat")}
+          {formatPrice(data.price)}&nbsp;{localize("dollar")}
         </del>
       </>
     );

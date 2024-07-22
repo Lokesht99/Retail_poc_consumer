@@ -8,7 +8,7 @@ function ReviewCartItem({ data }) {
 
   const product = data.product;
   let image;
-  let price = `${formatPrice(product.price)} ${localize("kyat")}`;
+  let price = `${formatPrice(product.price)} ${localize("dollar")}`;
 
   if (product.images && product.images.length > 0) {
     image = `${baseImagePath}/books%2F${product.images[0]}?alt=media`;
@@ -18,7 +18,7 @@ function ReviewCartItem({ data }) {
     price = (
       <>
         {transformDiscount(product.price, product.discount)}
-        &nbsp;{localize("kyat")}
+        &nbsp;{localize("dollar")}
       </>
     );
   }

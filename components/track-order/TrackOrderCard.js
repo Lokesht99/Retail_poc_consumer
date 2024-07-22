@@ -64,25 +64,25 @@ function TrackOrderCard({ data }) {
                 <div>
                   Subtotal:&nbsp;
                   <span className="text-dark fw-semibold">
-                    {formatPrice(order.subtotal)}Ks
+                    {formatPrice(order.subtotal)}$
                   </span>
                 </div>
                 <div>
                   Discount:&nbsp;
                   <span className="text-danger fw-semibold">
-                    -{formatPrice(order.discount)}Ks
+                    -{formatPrice(order.discount)}$
                   </span>
                 </div>
                 <div>
                   Delivery Fee:&nbsp;
                   <span className="text-success fw-semibold">
-                    +{formatPrice(order.deliveryFee)}Ks
+                    +{formatPrice(order.deliveryFee)}$
                   </span>
                 </div>
                 <div>
                   Total Price:&nbsp;
                   <span className="text-dark fw-semibold">
-                    {formatPrice(order.totalPrice)}Ks
+                    {formatPrice(order.totalPrice)}$
                   </span>
                 </div>
               </div>

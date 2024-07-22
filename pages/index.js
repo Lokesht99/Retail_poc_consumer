@@ -49,7 +49,7 @@ function Home() {
                     className="d-flex align-items-center justify-content-between"
                     style={{ height: 42 }}
                   >
-                    <h6 className="mb-0">{localize("all_authors")}</h6>
+                    <h6 className="mb-0">{localize("all_departments")}</h6>
 
                     <Link href="/books">
                       <a className="text-primary small fw-medium text-decoration-none ms-2">

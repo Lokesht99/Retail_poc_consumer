@@ -3,7 +3,7 @@ import ProductListingComponent from "../../components/product/ProductListingComp
 
 function ProductList() {
   useEffect(() => {
-    document.title = `${process.env.NEXT_PUBLIC_APP_NAME} | Explore Books`;
+    document.title = `${process.env.NEXT_PUBLIC_APP_NAME} | Explore Products`;
   });
 
   return <ProductListingComponent path="" />;

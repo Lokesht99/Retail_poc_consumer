@@ -16,13 +16,13 @@ const collectionName = "books";
 
 export async function getProduct(id) {
   if (!id) {
-    throw Error("Book not found.");
+    throw Error("Product not found.");
   }
   const db = firestore;
   const snapShot = await getDoc(doc(db, collectionName, id));
 
   if (!snapShot.exists()) {
-    throw Error("Book not found.");
+    throw Error("Product not found.");
   }
 
   const data = snapShot.data();
@@ -32,6 +32,10 @@ export async function getProduct(id) {
 
   const authorRef = doc(db, "authors", data.author);
   const authorSnapshot = await getDoc(authorRef);
+
+  const manufacturerRef = doc(db, "manufacturers", data.manufacturer);
+  const manufacturerSnapshot = await getDoc(manufacturerRef);
+
 
   const relatedQuery = query(
     collection(db, collectionName),
@@ -55,11 +59,14 @@ export async function getProduct(id) {
     const related = rp.data();
 
     const author = await getDoc(doc(db, "authors", related.author));
+    const manufacturer = await getDoc(doc(db, "manufacturers", related.manufacturer));
 
     relatedList.push({
       ...related,
       id: rp.id,
       author: { id: author.id, name: author.data().name },
+      manufacturer: { id: manufacturer.id, name: manufacturer.data().name },
+
     });
   }
 
@@ -69,6 +76,8 @@ export async function getProduct(id) {
       id: snapShot.id,
       category: { id: categorySnapshot.id, name: categorySnapshot.data().name },
       author: { id: authorSnapshot.id, name: authorSnapshot.data().name },
+      manufacturer: { id: manufacturerSnapshot.id, name: manufacturerSnapshot.data().name },
+
     },
     relatedProducts: relatedList,
   };
@@ -106,7 +115,9 @@ export async function getProducts(q) {
   if (q && q.author) {
     constraints.push(where("author", "==", q.author));
   }
-
+  if (q && q.manufacturer) {
+    constraints.push(where("manufacturer", "==", q.manufacturer));
+  }
   constraints.push(where("hidden", "==", false));
 
   if (q && q.name && q.name.length > 0) {
@@ -135,12 +146,18 @@ export async function getProducts(q) {
   for (const qd of snapShot.docs) {
     const data = qd.data();
     const author = await getDoc(doc(db, "authors", data.author));
+    const manufacturer = await getDoc(doc(db, "manufacturers", data.manufacturer));
+
     list.push({
       ...data,
       id: qd.id,
       author: {
         id: data.author,
         name: author.data().name,
+      },
+      manufacturer: {
+        id: data.manufacturer,
+        name: manufacturer.data().name,
       },
     });
   }
