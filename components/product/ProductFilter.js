@@ -631,6 +631,7 @@ function ProductFilter({ category, author, manufacturer, onCategoryChoice, onAut
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [manufacturer, manufacturersData]);
 
+
   function handleSelect(event) {
     const checkedQuery = event.target.checked ? event.target.id : null;
 

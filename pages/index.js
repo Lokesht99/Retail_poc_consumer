@@ -136,7 +136,7 @@ function Home() {
                       tabIndex={0}
                       style={{ outline: "none" }}
                     >
-                      <FontAwesomeIcon icon={faCircle} size="xs" />
+                      <FontAwesomeIcon icon={faCircle} size="xs"  style={{ color: "lightgray" }} />
                     </li>
                   );
                 }}
@@ -146,14 +146,24 @@ function Home() {
                     <div
                       key={i}
                       onContextMenu={(e) => e.preventDefault()}
-                      className="ratio ratio-16x9 overflow-hidden"
+                     // className="ratio ratio-16x9 overflow-hidden"
+                      className=" overflow-hidden"
+                      style={{
+                        width: "100%",  // Adjust width as needed
+                        height: "500px",  // Set a fixed height
+                      }}
                     >
                       <img
                         src={`${baseImagePath}/banners%2F${e.name}?alt=media`}
                         alt="Cover image"
                         className=""
+                        // style={{
+                        //   objectFit: "cover",
+                        // }}
                         style={{
-                          objectFit: "cover",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",  // 'contain' prevents zooming and preserves aspect ratio
                         }}
                       />
                     </div>

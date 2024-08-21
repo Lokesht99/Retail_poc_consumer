@@ -43,6 +43,7 @@ export async function getProduct(id) {
     orderBy("createdAt", "desc"),
     limit(1)
   );
+  
 
   const relatedSnapshot = await getDocs(relatedQuery);
   const relatedProducts = relatedSnapshot.docs.filter((doc) => doc.id !== id);

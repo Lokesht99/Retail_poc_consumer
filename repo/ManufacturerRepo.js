@@ -4,9 +4,8 @@ import { firestore } from "../common/firebase.config";
 export async function getManufacturers() {
   const db = firestore;
   const manufacturerSnapshot = await getDocs(
-    query(collection(db, "manufaturers"), orderBy("createdAt", "desc"))
+    query(collection(db, "manufacturers"), orderBy("createdAt", "desc"))
   );
- 
   return manufacturerSnapshot.docs
     .map((doc) => {
       return { id: doc.id, name: doc.data().name };

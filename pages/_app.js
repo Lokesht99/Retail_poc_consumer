@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   const [locale, setLocale] = useState({
-    locale: "mm",
+    locale: "en",
     setLocale: changeLocale,
   });
 
@@ -71,7 +71,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     document.title = `${process.env.NEXT_PUBLIC_APP_NAME}`;
-    changeLocale(localStorage.getItem(KEY_APP_LOCALE) ?? "mm");
+    changeLocale(localStorage.getItem(KEY_APP_LOCALE) ?? "en");
   }, []);
 
   useEffect(() => {

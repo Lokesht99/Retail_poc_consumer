@@ -96,6 +96,15 @@ function ProductListItem({ data, large }) {
             {data.author.name}
           </a>
         </Link>
+        <Link href={`/books?manufacturer=${data.manufacturer.id}`}>
+          <a
+            className={`text-danger text-decoration-none ${
+              !large ? "text-truncate small mb-1" : "mb-1"
+            }`}
+          >
+            {data.manufacturer.name}
+          </a>
+        </Link>
         <h6 className="fw-semibold">{price}</h6>
         <div className="mt-auto">
           <button
